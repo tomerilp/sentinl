@@ -416,16 +416,16 @@ export default function watcherRoutes(server) {
   server.route({
     path: '/api/sentinl/watcher/wizard/aliases',
     method: 'GET',
-    handler: async function (req, reply) {
+    handler: async function (req) {
       try {
         // Use Elasticsearch API because Kibana savedObjectsClient
         // can't search in a specific index and doesn't allow custom query body
         const client = apiClient(server, 'elasticsearchAPI');
 
         const resp = await client.getAliases();
-        return reply(resp);
+        return resp;
       } catch (err) {
-        return reply(handleESError(err));
+        return handleESError(err);
       }
     }
   });
