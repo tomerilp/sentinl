@@ -32,10 +32,25 @@ class WatcherWizardAddIndex {
       this.log.error('get index names: ' + err.toString());
     }
   }
+  
+  async getAliasNames(name) {
+    try {
+      let aliases = await this.watcherWizardEsService.getAllAliases();
+      return this._filterAliasesByNamePrefix(aliases, this.selected);
+    } catch (err) {
+      this.notify('get alias names: ' + err.toString());
+      this.log.error('get alias names: ' + err.toString());
+    }
+  }
 
   _filterIndexesByNamePrefix(indexes, namePrefix) {
     const re = new RegExp(namePrefix + '.*', 'gi');
     return indexes.filter((i) => i.index.match(re));
+  }
+  
+  _filterAliasesByNamePrefix(aliases, namePrefix) {
+    const re = new RegExp(namePrefix + '.*', 'gi');
+    return aliases.filter((i) => i.alias.match(re));
   }
 
   handleChange() {
