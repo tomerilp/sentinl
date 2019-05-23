@@ -24,8 +24,7 @@ class WatcherWizardEsService {
       throw new SentinlError('get all indexes', err);
     }
   }
-}
-
+  
   async getAllAliases() {
     try {
       const res = await this.$http.get(this.API.ES.ALL_ALIASES);
