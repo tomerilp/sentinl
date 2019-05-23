@@ -25,6 +25,10 @@ export default class EsApi {
   getIndices(format = 'json') {
     return this._client.cat.indices({ format });
   }
+  
+  getAliases(format = 'json', h = 'alias', s = 'alias') {
+    return this._client.cat.aliases({ format, h, s });
+  }  
 
   async impersonate(watcherId) {
     try {
