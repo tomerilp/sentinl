@@ -10,6 +10,7 @@ export default {
   },
   ES: {
     ALL_INDEXES: `${base}/watcher/wizard/indexes`,
+    ALL_ALIASES: `${base}/watcher/wizard/aliases`,
     GET_MAPPING: `${base}/watcher/wizard/getmapping`,
   },
 };
