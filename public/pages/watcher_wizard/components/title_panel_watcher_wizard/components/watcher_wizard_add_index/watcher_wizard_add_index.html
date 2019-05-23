@@ -8,7 +8,7 @@
           ng-model="watcherWizardAddIndex.selected"
           ng-model-options="{ debounce: 1500 }"
           placeholder="Type index names here"
-          uib-typeahead="element.index for element in watcherWizardAddIndex.getAliasNames($viewValue)"
+          uib-typeahead="element.alias for element in watcherWizardAddIndex.getAliasNames($viewValue)"
           typeahead-loading="watcherWizardAddIndex.loadingLocations"
           typeahead-no-results="watcherWizardAddIndex.noResults"
           typeahead-on-select="watcherWizardAddIndex.handleChange($item, $model, $label, $event)" 
