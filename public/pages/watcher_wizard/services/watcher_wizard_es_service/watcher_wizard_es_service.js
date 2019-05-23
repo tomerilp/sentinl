@@ -26,4 +26,14 @@ class WatcherWizardEsService {
   }
 }
 
+  async getAllAliases() {
+    try {
+      const res = await this.$http.get(this.API.ES.ALL_ALIASES);
+      return res.data;
+    } catch (err) {
+      throw new SentinlError('get all aliases', err);
+    }
+  }
+}
+
 export default WatcherWizardEsService;
